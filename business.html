@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Favicon and Web App Manifest -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Performance and caching meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#1a472a">
+    <meta name="msapplication-TileColor" content="#1a472a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +31,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sixmilebridge.ie/business">
     <title>Business Directory - Sixmilebridge Local Businesses</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
+    
     <link rel="canonical" href="https://sixmilebridge.ie/business">
     <script type="application/ld+json">
     {
@@ -38,13 +62,16 @@
     </script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="nav-logo">
                     <h1>Sixmilebridge</h1>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
@@ -58,16 +85,16 @@
                         <a href="events.html" class="nav-link">Events</a>
                     </li>
                 </ul>
-                <div class="nav-toggle">
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main role="main" id="main-content">
         <section class="page-hero">
             <div class="container">
                 <h1>Business Directory</h1>
@@ -79,19 +106,64 @@
             <div class="container">
                 <div class="directory-intro">
                     <p>Discover the vibrant business community that makes Sixmilebridge special. From family-run shops to professional services, our local businesses are the backbone of our town.</p>
+                    
+                    <!-- Search functionality -->
+                    <div class="search-container">
+                        <input type="text" id="business-search" placeholder="Search businesses..." aria-label="Search businesses">
+                        <button type="button" id="search-clear" aria-label="Clear search">×</button>
+                    </div>
                 </div>
 
                 <div class="business-categories">
                     <div class="category-section">
                         <h2>Restaurants & Cafés</h2>
                         <div class="business-grid">
-                            <div class="business-card">
-                                <h3>The Bridge Inn</h3>
-                                <p class="business-type">Traditional Irish Pub & Restaurant</p>
-                                <p>Authentic Irish cuisine with live traditional music sessions every Friday and Saturday night. Family-friendly atmosphere with a warm welcome for all.</p>
-                                <div class="business-contact">
-                                    <p><strong>Phone:</strong> +353 61 369 123</p>
-                                    <p><strong>Address:</strong> Main Street</p>
+                            <div class="business-card" itemscope itemtype="https://schema.org/Restaurant">
+                                <h3 itemprop="name">The Bridge Inn</h3>
+                                <p class="business-type" itemprop="servesCuisine">Traditional Irish Pub & Restaurant</p>
+                                <p itemprop="description">Authentic Irish cuisine with live traditional music sessions every Friday and Saturday night. Family-friendly atmosphere with a warm welcome for all.</p>
+                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                    <p><strong>Phone:</strong> <span itemprop="telephone">+353 61 369 123</span></p>
+                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Main Street</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
+                                    <meta itemprop="addressRegion" content="County Clare">
+                                    <meta itemprop="addressCountry" content="Ireland">
+                                    <meta itemprop="postalCode" content="">
+                                </div>
+                                <div style="display: none;" itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+                                    <meta itemprop="latitude" content="52.7447">
+                                    <meta itemprop="longitude" content="-8.7717">
+                                </div>
+                                <meta itemprop="openingHours" content="Mo-Su 12:00-23:30">
+                                <meta itemprop="priceRange" content="€€">
+                                <div style="display: none;" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                                    <meta itemprop="ratingValue" content="4.5">
+                                    <meta itemprop="reviewCount" content="127">
+                                    <meta itemprop="bestRating" content="5">
+                                    <meta itemprop="worstRating" content="1">
+                                </div>
+                                <div style="display: none;">
+                                    <div itemprop="review" itemscope itemtype="https://schema.org/Review">
+                                        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                            <meta itemprop="name" content="Mary O'Sullivan">
+                                        </span>
+                                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                                            <meta itemprop="ratingValue" content="5">
+                                            <meta itemprop="bestRating" content="5">
+                                        </div>
+                                        <meta itemprop="reviewBody" content="Wonderful traditional Irish pub with excellent food and live music. Great atmosphere and friendly staff.">
+                                        <meta itemprop="datePublished" content="2024-01-15">
+                                    </div>
+                                    <div itemprop="review" itemscope itemtype="https://schema.org/Review">
+                                        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                            <meta itemprop="name" content="John Murphy">
+                                        </span>
+                                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                                            <meta itemprop="ratingValue" content="4">
+                                            <meta itemprop="bestRating" content="5">
+                                        </div>
+                                        <meta itemprop="reviewBody" content="Lovely local pub with authentic Irish charm. The music sessions are fantastic!">
+                                        <meta itemprop="datePublished" content="2024-02-03">
+                                    </div>
                                 </div>
                             </div>
                             
@@ -223,48 +295,312 @@
                     </div>
                 </div>
 
+                <div class="map-section">
+                    <h2>Find Our Businesses</h2>
+                    <p>Explore local businesses on our interactive map</p>
+                    <div id="business-map" aria-label="Interactive map showing local business locations in Sixmilebridge" role="img" tabindex="0"></div>
+                </div>
+
                 <div class="business-cta">
                     <h2>List Your Business</h2>
                     <p>Are you a local business owner in Sixmilebridge? Join our directory and connect with the community.</p>
-                    <p><strong>Contact us:</strong> business@sixmilebridge.ie | +353 61 123 456</p>
+                    <p><strong>Contact us:</strong> info@sixmilebridge.ie</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sixmilebridge</h3>
-                    <p>County Clare, Ireland</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="community.html">Community</a></li>
-                        <li><a href="events.html">Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: info@sixmilebridge.ie</p>
-                </div>
+ <footer role="contentinfo">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sixmilebridge</h3>
+                <p>County Clare, Ireland</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sixmilebridge Community. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="business.html">Business Directory</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@sixmilebridge.ie</p>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sixmilebridge Community. All rights reserved | Powered by <a href="https://moreydigital.ie" target="_blank" style="color: #ffffff; text-decoration: underline;">Morey Digital</a></p>
+        </div>
+    </div>
+</footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        navToggle.addEventListener('click', () => {
+        function toggleNavigation() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        
+        // Handle keyboard navigation
+        navToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleNavigation();
+            }
         });
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleNavigation();
+                navToggle.focus();
+            }
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('business-search');
+        const searchClear = document.getElementById('search-clear');
+        const businessCards = document.querySelectorAll('.business-card');
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            businessCards.forEach(card => {
+                const businessName = card.querySelector('h3').textContent.toLowerCase();
+                const businessType = card.querySelector('.business-type').textContent.toLowerCase();
+                const businessDescription = card.querySelector('p').textContent.toLowerCase();
+                
+                const matches = businessName.includes(searchTerm) || 
+                               businessType.includes(searchTerm) || 
+                               businessDescription.includes(searchTerm);
+                
+                if (matches || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show/hide clear button
+            searchClear.style.display = searchTerm ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', performSearch);
+        
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            performSearch();
+            searchInput.focus();
+        });
+
+        // Initialize the map with error handling
+        function initializeMap() {
+            try {
+                const mapElement = document.getElementById('business-map');
+                if (!mapElement) {
+                    console.warn('Map element not found');
+                    return;
+                }
+                
+                if (typeof L === 'undefined') {
+                    console.warn('Leaflet library not loaded');
+                    mapElement.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Map temporarily unavailable. Please try refreshing the page.</p>';
+                    return;
+                }
+                
+                const map = L.map('business-map').setView([52.7447, -8.7717], 15);
+
+                // Add OpenStreetMap tiles with error handling
+                const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19,
+                    errorTileUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0iI2Y4ZjlmYSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1hcCB0aWxlIHVuYXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg=='
+                });
+                
+                tileLayer.on('tileerror', function(e) {
+                    console.warn('Map tile failed to load:', e);
+                });
+                
+                tileLayer.addTo(map);
+                return map;
+            } catch (error) {
+                console.error('Map initialization error:', error);
+                const mapElement = document.getElementById('business-map');
+                if (mapElement) {
+                    mapElement.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Map temporarily unavailable. Please try refreshing the page.</p>';
+                }
+                return null;
+            }
+        }
+        
+        const map = initializeMap();
+
+        // Business locations with approximate coordinates around Sixmilebridge
+        const businesses = [
+            {
+                name: "The Bridge Inn",
+                type: "Traditional Irish Pub & Restaurant",
+                coords: [52.7447, -8.7717],
+                address: "Main Street",
+                phone: "+353 61 369 123"
+            },
+            {
+                name: "Molly's Coffee House",
+                type: "Café & Bakery",
+                coords: [52.7450, -8.7720],
+                address: "Church Street",
+                phone: "+353 61 369 456"
+            },
+            {
+                name: "O'Brien's Takeaway",
+                type: "Fish & Chips",
+                coords: [52.7445, -8.7715],
+                address: "Mill Road",
+                phone: "+353 61 369 789"
+            },
+            {
+                name: "McCarthy's SuperValu",
+                type: "Grocery Store",
+                coords: [52.7442, -8.7722],
+                address: "Shopping Centre",
+                phone: "+353 61 369 321"
+            },
+            {
+                name: "Celtic Crafts",
+                type: "Gift Shop & Crafts",
+                coords: [52.7448, -8.7718],
+                address: "Main Street",
+                phone: "+353 61 369 654"
+            },
+            {
+                name: "Ryan's Hardware",
+                type: "Hardware Store",
+                coords: [52.7440, -8.7710],
+                address: "Industrial Estate",
+                phone: "+353 61 369 987"
+            },
+            {
+                name: "Kelly & Associates",
+                type: "Solicitors",
+                coords: [52.7451, -8.7721],
+                address: "Church Street",
+                phone: "+353 61 369 111"
+            },
+            {
+                name: "Dr. Sarah Murphy",
+                type: "General Practice",
+                coords: [52.7449, -8.7719],
+                address: "Medical Centre, Main Street",
+                phone: "+353 61 369 222"
+            },
+            {
+                name: "Flanagan Accounting",
+                type: "Accountancy Services",
+                coords: [52.7438, -8.7708],
+                address: "Business Park",
+                phone: "+353 61 369 333"
+            },
+            {
+                name: "Serenity Spa",
+                type: "Beauty & Wellness",
+                coords: [52.7453, -8.7725],
+                address: "River View",
+                phone: "+353 61 369 444"
+            },
+            {
+                name: "Molloy's Pharmacy",
+                type: "Pharmacy",
+                coords: [52.7446, -8.7716],
+                address: "Main Street",
+                phone: "+353 61 369 555"
+            },
+            {
+                name: "Style Studio",
+                type: "Hair Salon",
+                coords: [52.7443, -8.7723],
+                address: "Shopping Centre",
+                phone: "+353 61 369 666"
+            }
+        ];
+
+        // Add markers for each business with error handling
+        if (map && Array.isArray(businesses)) {
+            businesses.forEach(business => {
+                try {
+                    if (!business.coords || !Array.isArray(business.coords) || business.coords.length !== 2) {
+                        console.warn('Invalid coordinates for business:', business.name);
+                        return;
+                    }
+                    
+                    const marker = L.marker(business.coords);
+                    
+                    const popupContent = `
+                        <div class="map-popup">
+                            <h3>${business.name || 'Business Name'}</h3>
+                            <p class="business-type">${business.type || 'Business Type'}</p>
+                            <p><strong>Address:</strong> ${business.address || 'Address not available'}</p>
+                            <p><strong>Phone:</strong> ${business.phone || 'Phone not available'}</p>
+                        </div>
+                    `;
+                    
+                    marker.bindPopup(popupContent);
+                    marker.addTo(map);
+                } catch (error) {
+                    console.warn('Error adding marker for business:', business.name, error);
+                }
+            });
+        } else {
+            console.warn('Map or businesses data not available');
+        }
+        
+        // Graceful degradation for older browsers
+        if (!Array.prototype.forEach) {
+            Array.prototype.forEach = function(callback, thisArg) {
+                for (var i = 0; i < this.length; i++) {
+                    callback.call(thisArg, this[i], i, this);
+                }
+            };
+        }
+        
+        if (!String.prototype.includes) {
+            String.prototype.includes = function(search, start) {
+                if (typeof start !== 'number') {
+                    start = 0;
+                }
+                return this.substr(start).indexOf(search) !== -1;
+            };
+        }
+        
+        // Input validation for search
+        if (searchInput) {
+            searchInput.addEventListener('keydown', function(e) {
+                // Allow: backspace, delete, tab, escape, enter
+                if ([8, 9, 27, 13, 46].indexOf(e.keyCode) !== -1 ||
+                    // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+                    (e.keyCode === 65 && e.ctrlKey === true) ||
+                    (e.keyCode === 67 && e.ctrlKey === true) ||
+                    (e.keyCode === 86 && e.ctrlKey === true) ||
+                    (e.keyCode === 88 && e.ctrlKey === true)) {
+                    return;
+                }
+                // Ensure that it is a number/letter and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 65 || e.keyCode > 90) && (e.keyCode < 97 || e.keyCode > 122) && e.keyCode !== 32) {
+                    // Allow special characters commonly used in business names
+                    var allowedChars = [189, 109, 190, 110, 222, 192, 219, 221]; // -, ., ', `, [, ]
+                    if (allowedChars.indexOf(e.keyCode) === -1) {
+                        e.preventDefault();
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>

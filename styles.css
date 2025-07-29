@@ -1,3 +1,25 @@
+/* Accessibility Styles */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #1a472a;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+    font-weight: 600;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 6px;
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -117,6 +139,10 @@ a:hover {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
 }
 
 .bar {
@@ -234,7 +260,7 @@ a:hover {
 }
 
 .news-date {
-    color: #666;
+    color: #555;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
@@ -317,11 +343,58 @@ a:hover {
     color: #1a472a;
 }
 
+
 /* Business Directory Styles */
 .directory-intro {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 1.1rem;
+}
+
+/* Search functionality */
+.search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 2rem auto 0;
+}
+
+#business-search {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#business-search:focus {
+    outline: none;
+    border-color: #1a472a;
+    box-shadow: 0 0 0 3px rgba(26, 71, 42, 0.1);
+}
+
+#search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: none;
+}
+
+#search-clear:hover {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+#business-search:not(:placeholder-shown) + #search-clear {
+    display: block;
 }
 
 .category-section {
@@ -464,7 +537,7 @@ a:hover {
 
 .event-time,
 .event-location {
-    color: #666;
+    color: #555;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
@@ -547,7 +620,7 @@ a:hover {
 .calendar-month li {
     padding: 0.5rem 0;
     border-bottom: 1px solid #f8f9fa;
-    color: #666;
+    color: #555;
 }
 
 .calendar-month li:last-child {
@@ -607,6 +680,74 @@ footer {
 
 .footer-section a:hover {
     color: #fff;
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #fff;
+}
+
+.social-icon {
+    font-size: 1.2rem;
+}
+
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #1a472a;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(26, 71, 42, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #2d5a3d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 71, 42, 0.4);
+}
+
+.back-to-top:focus {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+.back-to-top-icon {
+    font-weight: bold;
 }
 
 .footer-bottom {
@@ -763,6 +904,122 @@ button:focus,
     outline-offset: 2px;
 }
 
+.nav-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* High contrast support for better accessibility */
+@media (prefers-contrast: high) {
+    .skip-link {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .nav-toggle:focus {
+        background-color: #fff;
+        color: #000;
+    }
+    
+    .news-date,
+    .event-time,
+    .event-location,
+    .calendar-month li {
+        color: #333;
+    }
+}
+
+/* Enhanced Mobile Touch Targets */
+@media (pointer: coarse) {
+    .nav-link,
+    .cta-button,
+    .nav-toggle,
+    .back-to-top {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+    }
+    
+    /* Increase tap target size for small elements */
+    .social-link {
+        min-height: 44px;
+        padding: 0.75rem;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Mobile-Specific Layout Optimizations */
+@media screen and (max-width: 768px) {
+    /* Improve mobile navigation */
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    /* Better mobile cards */
+    .highlight-card,
+    .news-item,
+    .business-card {
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+    }
+    
+    
+    /* Better mobile forms */
+    input, button, select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Swipe indicator for mobile */
+    .swipe-indicator {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .swipe-indicator {
+        display: none;
+    }
+}
+
+/* Performance optimizations for mobile */
+@media screen and (max-width: 768px) {
+    /* Reduce animations on mobile for better performance */
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Optimize images for mobile */
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    /* Better mobile typography */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Mobile-first loading optimization */
+    .hero-content h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+}
+
 /* Print styles */
 @media print {
     .navbar,
@@ -780,6 +1037,54 @@ button:focus,
     .hero-content h1,
     .page-hero h1 {
         color: #000;
+    }
+}
+
+/* Map Styles */
+.map-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.map-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.map-section p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+#business-map {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.map-popup h3 {
+    color: #1a472a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.map-popup .business-type {
+    color: #2d5a3d;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.map-popup p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    #business-map {
+        height: 400px;
     }
 }
 

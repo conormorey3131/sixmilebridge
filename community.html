@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Favicon and Web App Manifest -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Performance and caching meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#1a472a">
+    <meta name="msapplication-TileColor" content="#1a472a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +31,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sixmilebridge.ie/community">
     <title>Community - Sixmilebridge, County Clare</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
     <link rel="canonical" href="https://sixmilebridge.ie/community">
     <script type="application/ld+json">
     {
@@ -41,15 +62,76 @@
         }
     }
     </script>
+    
+    <!-- FAQ Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the population of Sixmilebridge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sixmilebridge has a population of approximately 2,500 residents, making it a close-knit community in County Clare, Ireland."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does the Irish name 'Droichead na Sé Míle' mean?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Droichead na Sé Míle means 'Bridge of Six Miles' in English, referring to the town's location approximately six Irish miles from Limerick city."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What sports are popular in Sixmilebridge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Hurling is particularly popular in Sixmilebridge, with our GAA club having a strong tradition. The town has produced many talented players who have represented Clare at county level."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What local organizations are active in Sixmilebridge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sixmilebridge has many active community organizations including the GAA club, community council, local businesses association, historical society, and various volunteer groups that organize events and support community initiatives."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I get involved in the Sixmilebridge community?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can get involved by contacting local organizations, attending community events, joining the GAA club, volunteering for local initiatives, or reaching out to the community council. Check our events page for upcoming activities."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What makes Sixmilebridge special?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sixmilebridge combines rich Irish heritage with modern community life. Our strategic location on the River O'Garney, strong GAA tradition, active local businesses, and close-knit community spirit make it a wonderful place to live and visit."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="nav-logo">
                     <h1>Sixmilebridge</h1>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
@@ -63,16 +145,16 @@
                         <a href="events.html" class="nav-link">Events</a>
                     </li>
                 </ul>
-                <div class="nav-toggle">
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main role="main" id="main-content">
         <section class="page-hero">
             <div class="container">
                 <h1>Our Community</h1>
@@ -224,7 +306,7 @@
         </section>
     </main>
 
- <footer>
+ <footer role="contentinfo">
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
@@ -254,8 +336,28 @@
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        navToggle.addEventListener('click', () => {
+        function toggleNavigation() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        
+        // Handle keyboard navigation
+        navToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleNavigation();
+            }
+        });
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleNavigation();
+                navToggle.focus();
+            }
         });
     </script>
 </body>

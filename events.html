@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Favicon and Web App Manifest -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Performance and caching meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#1a472a">
+    <meta name="msapplication-TileColor" content="#1a472a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +31,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sixmilebridge.ie/events">
     <title>Events in Sixmilebridge - Community Activities & Festivals</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
     <link rel="canonical" href="https://sixmilebridge.ie/events">
     <script type="application/ld+json">
     {
@@ -39,15 +60,126 @@
         }
     }
     </script>
+    
+    <!-- Enhanced Event Structured Data -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "Sixmilebridge Summer Festival",
+            "description": "Annual summer festival featuring live music, local crafts, traditional Irish entertainment, food stalls, and family-friendly activities celebrating our community.",
+            "startDate": "2024-08-15T10:00:00+01:00",
+            "endDate": "2024-08-17T22:00:00+01:00",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+                "@type": "Place",
+                "name": "Sixmilebridge Town Center",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Main Street",
+                    "addressLocality": "Sixmilebridge",
+                    "addressRegion": "County Clare",
+                    "addressCountry": "Ireland"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "52.7447",
+                    "longitude": "-8.7717"
+                }
+            },
+            "organizer": {
+                "@type": "Organization",
+                "name": "Sixmilebridge Community Council",
+                "email": "events@sixmilebridge.ie"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-06-01T00:00:00+01:00"
+            },
+            "image": "https://sixmilebridge.ie/favicon-32x32.png",
+            "performer": {
+                "@type": "PerformingGroup",
+                "name": "Local Traditional Irish Musicians"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "GAA Hurling Championship Match",
+            "description": "Exciting hurling match featuring Sixmilebridge GAA club. Come support our local team in this thrilling County Clare championship game.",
+            "startDate": "2024-09-08T15:00:00+01:00",
+            "endDate": "2024-09-08T17:00:00+01:00",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+                "@type": "SportsActivityLocation",
+                "name": "Sixmilebridge GAA Grounds",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "GAA Grounds",
+                    "addressLocality": "Sixmilebridge",
+                    "addressRegion": "County Clare",
+                    "addressCountry": "Ireland"
+                }
+            },
+            "organizer": {
+                "@type": "SportsOrganization",
+                "name": "Sixmilebridge GAA Club",
+                "url": "https://sixmilebridge.ie"
+            },
+            "competitor": [
+                {
+                    "@type": "SportsTeam",
+                    "name": "Sixmilebridge GAA"
+                }
+            ],
+            "sport": "Hurling"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "Weekly Farmers Market",
+            "description": "Fresh local produce, artisan goods, and community gathering every Saturday morning in the town square.",
+            "startDate": "2024-07-01T09:00:00+01:00",
+            "endDate": "2024-12-31T13:00:00+00:00",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "frequency": "P1W",
+            "location": {
+                "@type": "Place",
+                "name": "Town Square",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Main Street",
+                    "addressLocality": "Sixmilebridge",
+                    "addressRegion": "County Clare",
+                    "addressCountry": "Ireland"
+                }
+            },
+            "organizer": {
+                "@type": "Organization",
+                "name": "Sixmilebridge Farmers Market Committee"
+            }
+        }
+    ]
+    </script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="nav-logo">
                     <h1>Sixmilebridge</h1>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
@@ -61,16 +193,16 @@
                         <a href="events.html" class="nav-link active">Events</a>
                     </li>
                 </ul>
-                <div class="nav-toggle">
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main role="main" id="main-content">
         <section class="page-hero">
             <div class="container">
                 <h1>Community Events</h1>
@@ -276,7 +408,7 @@
         </section>
     </main>
 
- <footer>
+ <footer role="contentinfo">
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
@@ -306,8 +438,28 @@
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        navToggle.addEventListener('click', () => {
+        function toggleNavigation() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        
+        // Handle keyboard navigation
+        navToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleNavigation();
+            }
+        });
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleNavigation();
+                navToggle.focus();
+            }
         });
     </script>
 </body>
