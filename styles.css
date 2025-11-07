@@ -405,3 +405,36 @@ button:focus,
 .nav-toggle:focus {
     background-color: rgba(0, 0, 0, 0.05);
 }
+.business-directory .business-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.business-directory .business-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.business-directory .business-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.business-directory .business-card h3 {
+    margin-top: 0;
+    color: #1a472a;
+}
+
+.business-directory .business-card .business-type {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.business-directory .business-card .business-contact p {
+    margin-bottom: 0.5rem;
+}
