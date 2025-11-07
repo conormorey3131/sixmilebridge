@@ -256,6 +256,39 @@ a:hover {
     transform: translateY(-2px);
 }
 
+/* Homepage Content Sections */
+.highlights, .news {
+    padding: 4rem 0;
+}
+
+.highlights:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.container ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.container ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+}
+
+.container p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Footer */
 footer {
     background-color: #1a472a;
