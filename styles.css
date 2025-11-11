@@ -375,6 +375,15 @@ footer {
     object-fit: contain;
 }
 
+.footer-logos h3 {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 img {
     max-width: 100%;
     height: auto;
