@@ -141,6 +141,32 @@
                     </div>
 
                     <div class="category-section">
+                        <h2>Food & Drink</h2>
+                        <div class="business-grid">
+                            <div class="business-card" itemscope itemtype="https://schema.org/CafeOrCoffeeShop">
+                                <img src="cozy_logo.jpg" alt="Cozy Cottage Cafe Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;">
+                                <img src="cozy_picture.jpg" alt="Cozy Cottage Cafe" itemprop="image" class="barber-image">
+                                <h3 itemprop="name">Cozy Cottage Cafe</h3>
+                                <p class="business-type">Cafe</p>
+                                <p itemprop="description">Serving Breakfast, Lite Bites and Dinners. Selection of cakes and homemade Brown Bread and Scones daily</p>
+                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                    <p><strong>Phone:</strong> <a href="tel:061369666" itemprop="telephone">061 369666</a></p>
+                                    <p><strong>Email:</strong> <a href="mailto:Cozy.cottagecafe@yahoo.ie" itemprop="email">Cozy.cottagecafe@yahoo.ie</a></p>
+                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Main street</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
+                                    <meta itemprop="addressRegion" content="County Clare">
+                                    <meta itemprop="addressCountry" content="Ireland">
+                                </div>
+                                <div class="business-hours" itemprop="openingHoursSpecification" itemscope itemtype="https://schema.org/OpeningHoursSpecification">
+                                    <p><strong>Hours:</strong> 9am – 4pm daily including weekend</p>
+                                </div>
+                                <div class="business-social">
+                                    <a href="https://www.cozycottage.ie" target="_blank" rel="noopener" itemprop="url">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
                         <h2>Health & Beauty</h2>
                         <div class="business-grid">
                             <div class="business-card" itemscope itemtype="https://schema.org/HairSalon">
@@ -362,6 +388,13 @@
 
         // Business locations with approximate coordinates around Sixmilebridge
         const businesses = [
+            {
+                name: "Cozy Cottage Cafe",
+                type: "Cafe",
+                coords: [52.7425, -8.7729], // Approximate coordinates
+                address: "Main street, Sixmilebridge",
+                phone: "061 369666"
+            },
             {
                 name: "KV Hair By Hazel",
                 type: "Men's Barber & Ladies Hairdresser",
