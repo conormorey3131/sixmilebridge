@@ -80,13 +80,13 @@ p {
 
 a {
     color: #2d5a3d;
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.3s ease;
     font-weight: 600;
 }
 
 a:hover {
-    color: #1a472a;
+    color: #ff6b35;
 }
 
 /* Header and Navigation */
