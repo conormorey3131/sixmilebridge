@@ -113,6 +113,13 @@ a:hover {
     align-items: center;
 }
 
+.site-logo {
+    height: 100px;
+    background-color: white;
+    padding: 0.1px;
+    border-radius: 5px;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -709,4 +716,33 @@ button:focus,
     .event-card .event-content {
         padding: 1rem;
     }
+
+    /* Responsive table for privacy policy */
+    .about-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Privacy Policy Table */
+.about-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.about-content th,
+.about-content td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+.about-content th {
+    background-color: #f9f9f9;
+    font-weight: 700;
+    color: #1a472a;
 }
