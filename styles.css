@@ -193,6 +193,12 @@ a:hover {
     color: #333;
 }
 
+.about-content .education-section p:first-of-type {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #444;
+}
+
 .about-content ul {
     list-style-position: inside;
     padding-left: 1.5rem;
