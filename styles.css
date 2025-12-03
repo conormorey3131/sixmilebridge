@@ -215,13 +215,65 @@ a:hover {
     padding: 5rem 0;
 }
 
+/* Center the container but keep content left-aligned */
+.about-content .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+}
+
+/* Ensure highlight-content sections use full width */
+.about-content .highlight-content {
+    width: 100% !important;
+    max-width: 1200px !important;
+}
+
+.about-content .highlight-text {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Left-align all content in about-content sections */
+.about-content p,
+.about-content h2,
+.about-content h3,
+.about-content h4 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+}
+
+/* Ensure images are left-aligned within the centered container */
+.about-content img {
+    display: block;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left !important;
+}
+
+/* Left-align highlight-image container and its image */
+.about-content .highlight-image {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+.about-content .highlight-image img {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
 .about-content p:first-of-type {
     font-size: 1.1rem;
     font-weight: 500;
     color: #333;
 }
 
-.about-content .education-section p:first-of-type {
+.about-content .education-section p:first-of-type,
+.about-content .churches-section p:first-of-type,
+.about-content .events-section p:first-of-type,
+.about-content .heritage-section p:first-of-type {
     font-size: 1rem;
     font-weight: 400;
     color: #444;
@@ -341,6 +393,18 @@ a:hover {
 /* Alternate image position */
 .highlights:nth-of-type(even) .highlight-content {
     flex-direction: row-reverse;
+}
+
+/* Community page heritage section - stack image above text */
+.about-content .highlight-content {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-content .highlight-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .highlights:nth-of-type(odd) {
