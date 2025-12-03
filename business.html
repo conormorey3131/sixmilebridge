@@ -22,18 +22,17 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find local businesses in Sixmilebridge, County Clare. Directory of shops, restaurants, services, and professional businesses in our community.">
-    <meta name="keywords" content="Sixmilebridge business, local shops, restaurants Clare, services Sixmilebridge, business directory">
+    <meta name="description" content="Find local businesses in Sixmilebridge, County Clare. Browse our directory by category - Food & Drink, Professional Services, Health & Beauty, and Pet Services.">
+    <meta name="keywords" content="Sixmilebridge business directory, local shops Clare, restaurants Sixmilebridge, professional services, health beauty, pet services">
     <meta name="author" content="Sixmilebridge Community">
     <meta property="og:title" content="Business Directory - Sixmilebridge Local Businesses">
-    <meta property="og:description" content="Discover local businesses, shops, restaurants, and services in Sixmilebridge, County Clare, Ireland.">
+    <meta property="og:description" content="Discover local businesses in Sixmilebridge by category. Support your local community businesses.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sixmilebridge.ie/business">
     <title>Business Directory - Sixmilebridge Local Businesses</title>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Non-critical CSS loaded asynchronously -->
@@ -48,7 +47,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Sixmilebridge Business Directory",
-        "description": "Directory of local businesses, shops, restaurants, and services in Sixmilebridge, County Clare, Ireland.",
+        "description": "Directory of local businesses in Sixmilebridge, County Clare, Ireland, organised by category.",
         "url": "https://sixmilebridge.ie/business",
         "about": {
             "@type": "Place",
@@ -56,7 +55,35 @@
             "addressLocality": "Sixmilebridge",
             "addressRegion": "County Clare",
             "addressCountry": "Ireland"
-        }
+        },
+        "mainEntity": [
+            {
+                "@type": "ItemList",
+                "name": "Business Categories",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Food & Drink"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Professional Services"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Health & Beauty"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Pet Services"
+                    }
+                ]
+            }
+        ]
     }
     </script>
 </head>
@@ -103,173 +130,91 @@
         <section class="page-hero">
             <div class="container">
                 <h1>Business Directory</h1>
-                <p>Support local businesses in Sixmilebridge</p>
+                <p>Support local businesses in Sixmilebridge - browse by category</p>
             </div>
         </section>
 
-        <section class="business-directory">
+        <section class="business-overview-top">
             <div class="container">
-                <div class="directory-intro">
-                    
-                    <!-- Search functionality -->
-                    <div class="search-container">
-                        <input type="text" id="business-search" placeholder="Search businesses..." aria-label="Search businesses">
-                        <button type="button" id="search-clear" aria-label="Clear search">×</button>
-                    </div>
-                </div>
-
-                <div class="business-categories">
-
-                    <div class="category-section">
-                        <h2>Professional Services</h2>
-                        <div class="business-grid">
-                            <div class="business-card" itemscope itemtype="https://schema.org/ProfessionalService">
-                                <img src="Morey_Digital_logo.jpg" alt="Morey Digital Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;">
-                                <h3 itemprop="name">Morey Digital</h3>
-                                <p class="business-type">Web Design & Digital Growth</p>
-                                <p itemprop="description">High-impact websites that convert visitors into loyal customers. Specialising in web design, e-commerce, SMMA services, SEO, and IT solutions.</p>
-                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                    <p><strong>Phone:</strong> <a href="tel:0873999296" itemprop="telephone">087 399 9296</a></p>
-                                    <p><strong>Email:</strong> <a href="mailto:conor@moreydigital.ie" itemprop="email">conor@moreydigital.ie</a></p>
-                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Ballysheen</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
-                                    <meta itemprop="addressRegion" content="County Clare">
-                                    <meta itemprop="addressCountry" content="Ireland">
-                                </div>
-                                <div class="business-social">
-                                    <a href="https://moreydigital.ie" target="_blank" rel="noopener" itemprop="url">Website</a> |
-                                    <a href="https://www.instagram.com/moreydigital" target="_blank" rel="noopener">Instagram</a> |
-                                    <a href="https://www.linkedin.com/company/morey-digital/" target="_blank" rel="noopener">LinkedIn</a> |
-                                    <a href="https://www.facebook.com/people/Morey-Digital/61566762822063/" target="_blank" rel="noopener">Facebook</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h2>Food & Drink</h2>
-                        <div class="business-grid">
-                            <div class="business-card" itemscope itemtype="https://schema.org/CafeOrCoffeeShop">
-                                <img src="cozy_logo.jpg" alt="Cozy Cottage Cafe Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;">
-                                <img src="cozy_picture.jpg" alt="Cozy Cottage Cafe" itemprop="image" class="barber-image">
-                                <h3 itemprop="name">Cozy Cottage Cafe</h3>
-                                <p class="business-type">Cafe</p>
-                                <p itemprop="description">Serving Breakfast, Lite Bites and Dinners. Selection of cakes and homemade Brown Bread and Scones daily</p>
-                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                    <p><strong>Phone:</strong> <a href="tel:061369666" itemprop="telephone">061 369666</a></p>
-                                    <p><strong>Email:</strong> <a href="mailto:Cozy.cottagecafe@yahoo.ie" itemprop="email">Cozy.cottagecafe@yahoo.ie</a></p>
-                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Main street</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
-                                    <meta itemprop="addressRegion" content="County Clare">
-                                    <meta itemprop="addressCountry" content="Ireland">
-                                </div>
-                                <div class="business-hours" itemprop="openingHoursSpecification" itemscope itemtype="https://schema.org/OpeningHoursSpecification">
-                                    <p><strong>Hours:</strong> 9am – 4pm daily including weekend</p>
-                                </div>
-                                <div class="business-social">
-                                    <a href="https://www.cozycottage.ie" target="_blank" rel="noopener" itemprop="url">Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h2>Health & Beauty</h2>
-                        <div class="business-grid">
-                            <div class="business-card" itemscope itemtype="https://schema.org/HairSalon">
-                                <img src="kv_logo.jpg" alt="KV Hair By Hazel Logo" itemprop="logo" style="max-width: 100px; border-radius: 8px; margin-bottom: 1rem;">
-                                <img src="barber.jpg" alt="KV Hair By Hazel Salon" itemprop="image" class="barber-image">
-                                <h3 itemprop="name">KV Hair By Hazel</h3>
-                                <p class="business-type">Men's Barber & Ladies Hairdresser</p>
-                                <p itemprop="description">All aspects of men's hair & beard shaping. Ladies hairdressers offering all aspects of cutting, colouring & styling.</p>
-                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                    <p><strong>Phone:</strong> <a href="tel:0833907621" itemprop="telephone">0833907621</a></p>
-                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Unit 3, Main Street</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
-                                    <meta itemprop="addressRegion" content="County Clare">
-                                    <meta itemprop="addressCountry" content="Ireland">
-                                </div>
-                                <div class="business-hours" itemprop="openingHoursSpecification" itemscope itemtype="https://schema.org/OpeningHoursSpecification">
-                                    <p><strong>Hours:</strong> Tue-Sat, 9:30 AM - 5:30 PM (by appointment)</p>
-                                    <meta itemprop="dayOfWeek" content="https://schema.org/Tuesday">
-                                    <meta itemprop="dayOfWeek" content="https://schema.org/Wednesday">
-                                    <meta itemprop="dayOfWeek" content="https://schema.org/Thursday">
-                                    <meta itemprop="dayOfWeek" content="https://schema.org/Friday">
-                                    <meta itemprop="dayOfWeek" content="https://schema.org/Saturday">
-                                    <meta itemprop="opens" content="09:30">
-                                    <meta itemprop="closes" content="17:30">
-                                </div>
-                                <div class="business-social"> 
-                                    <a href="https://www.instagram.com/kvhair7" target="_blank" rel="noopener">Instagram</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h2>Pet Services</h2>
-                        <div class="business-grid">
-                            <div class="business-card" itemscope itemtype="https://schema.org/PetStore">
-                                <img src="barknboard_logo.png" alt="Bark'n'Board Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;">
-                                <img src="barknboard_image.png" alt="A dog on a path" itemprop="image" class="barber-image">
-                                <h3 itemprop="name">Bark’n’Board</h3>
-                                <p class="business-type">Dog Boarding Service</p>
-                                <p itemprop="description">We’re a family-run dog boarding service offering a calm, spacious, and friendly environment. Dogs enjoy plenty of outdoor time, comfortable rest spaces, and lots of care and attention.</p>
-                                <div class="business-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                    <p><strong>Phone:</strong> <a href="tel:0873710949" itemprop="telephone">087 371 0949</a></p>
-                                    <p><strong>Email:</strong> <a href="mailto:barknboarddogs@gmail.com" itemprop="email">barknboarddogs@gmail.com</a></p>
-                                    <p><strong>Address:</strong> <span itemprop="streetAddress">Hill House</span>, <span itemprop="addressLocality">Sixmilebridge</span></p>
-                                    <meta itemprop="addressRegion" content="County Clare">
-                                    <meta itemprop="addressCountry" content="Ireland">
-                                </div>
-                                <div class="business-hours" itemprop="openingHoursSpecification" itemscope itemtype="https://schema.org/OpeningHoursSpecification">
-                                    <p><strong>Hours:</strong></p>
-                                    <p>Mon – Fri 8:30 to 10am & 4 to 5:30pm</p>
-                                    <p>Saturday 9 to 10am</p>
-                                    <p>Sunday & Bank Holidays 4 to 5pm</p>
-                                </div>
-                                <div class="business-social">
-                                    <a href="https://www.barknboard.ie" target="_blank" rel="noopener" itemprop="url">Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-section">
-                    <h2>Find Our Businesses</h2>
-                    <p>Explore local businesses on our interactive map</p>
-                    <div id="business-map" aria-label="Interactive map showing local business locations in Sixmilebridge" role="img" tabindex="0"></div>
-                </div>
-
-                <div class="business-cta">
+                <div class="add-business-section-top">
                     <h2>List Your Business</h2>
-                    <p>Are you a local business owner in Sixmilebridge? Join our directory and connect with the community.</p>
-                    <p><strong>Contact us:</strong> Smbtownteam@gmail.com</p>
+                    <p>Are you a local business owner in Sixmilebridge? Join our directory and connect with your community. It's free and easy to get started.</p>
+                    <a href="https://forms.gle/BfgCZjwU7cBsSyyN8" target="_blank" rel="noopener noreferrer" class="add-business-btn">Add Your Business</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="business-map-section">
+            <div class="container">
+                <div class="map-section-full">
+                    <h2>Find Businesses Near You</h2>
+                    <div id="business-map" style="height: 600px; width: 100%; border-radius: 10px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="business-categories-overview">
+            <div class="container">
+                <div class="intro-section">
+                    <h2>Browse Business Categories</h2>
+                    <p>Discover local businesses and services in Sixmilebridge. Click on a category below to explore what our community has to offer.</p>
+                </div>
+
+                <div class="category-grid">
+                    <a href="business-food-drink.html" class="category-tile" aria-label="Browse Food & Drink businesses">
+                        <div class="category-icon">🍽️</div>
+                        <h3>Food & Drink</h3>
+                        <p>Restaurants, cafés, pubs, and local food services</p>
+                        <span class="category-cta">Browse Food & Drink →</span>
+                    </a>
+
+                    <a href="business-professional-services.html" class="category-tile" aria-label="Browse Professional Services">
+                        <div class="category-icon">💼</div>
+                        <h3>Professional Services</h3>
+                        <p>Legal, financial, consulting, and business services</p>
+                        <span class="category-cta">Browse Professional Services →</span>
+                    </a>
+
+                    <a href="business-health-beauty.html" class="category-tile" aria-label="Browse Health & Beauty services">
+                        <div class="category-icon">💆</div>
+                        <h3>Health & Beauty</h3>
+                        <p>Healthcare, wellness, beauty, and personal care services</p>
+                        <span class="category-cta">Browse Health & Beauty →</span>
+                    </a>
+
+                    <a href="business-pet-services.html" class="category-tile" aria-label="Browse Pet Services">
+                        <div class="category-icon">🐾</div>
+                        <h3>Pet Services</h3>
+                        <p>Veterinary care, grooming, pet supplies, and animal services</p>
+                        <span class="category-cta">Browse Pet Services →</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
- <footer role="contentinfo">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Sixmilebridge</h3>
-                <p>County Clare, Ireland</p>
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sixmilebridge</h3>
+                    <p>County Clare, Ireland</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="business.html">Business Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:Smbtownteam@gmail.com">Smbtownteam@gmail.com</a></p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="business.html">Business Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: <a href="mailto:Smbtownteam@gmail.com">Smbtownteam@gmail.com</a></p>
-            </div>
-        </div>
-        <div class="footer-logos">
+            <div class="footer-logos">
                 <div class="footer-sponsor">
                     <h3>Sponsored by St Francis Credit Union Social & Cultural Fund</h3>
                     <a href="https://www.stfranciscu.ie/" target="_blank" rel="noopener"><img src="SFCU Logo Large.PNG" alt="St Francis Credit Union Logo" class="sponsor-logo"></a>
@@ -279,18 +224,17 @@
                     <div class="partners-grid">
                         <a href="https://towncentrefirst.ie/" target="_blank" rel="noopener"><img src="Town Centre First Logo.jpg" alt="Town Centre First Logo"></a>
                         <a href="https://clarecoco.ie/" target="_blank" rel="noopener"><img src="Clare County Council Logo.jpg" alt="Clare County Council Logo"></a>
-                        <a href="https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/policy-information/project-ireland-2040/" target="_blank" rel="noopener"><img src="Project Ireland 2040 Logo.jpg" alt="Project Ireland 2040 Logo"></a>
+                        <a href="https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/publications/national-development-plan-review-2025/" target="_blank" rel="noopener"><img src="Project Ireland 2040 Logo.jpg" alt="Project Ireland 2040 Logo"></a>
                         <a href="https://www.gov.ie/en/department-of-rural-and-community-development-and-the-gaeltacht/campaigns/our-rural-future/" target="_blank" rel="noopener"><img src="Our Rural Future Logo.jpg" alt="Our Rural Future Logo"></a>
                     </div>
                 </div>
             </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Sixmilebridge Community. All rights reserved | <a href="privacy.html" style="color: #ffffff; text-decoration: underline;">Privacy Policy</a> | Powered by <a href="https://moreydigital.ie" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: underline;">Morey Digital</a></p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sixmilebridge Community. All rights reserved | <a href="privacy.html" style="color: #ffffff; text-decoration: underline;">Privacy Policy</a> | Powered by <a href="https://moreydigital.ie" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: underline;">Morey Digital</a></p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -319,186 +263,80 @@
             }
         });
 
-        // Search functionality
-        const searchInput = document.getElementById('business-search');
-        const searchClear = document.getElementById('search-clear');
-        const businessCards = document.querySelectorAll('.business-card');
-
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            businessCards.forEach(card => {
-                const businessName = card.querySelector('h3').textContent.toLowerCase();
-                const businessType = card.querySelector('.business-type').textContent.toLowerCase();
-                const businessDescription = card.querySelector('p').textContent.toLowerCase();
-                
-                const matches = businessName.includes(searchTerm) || 
-                               businessType.includes(searchTerm) || 
-                               businessDescription.includes(searchTerm);
-                
-                if (matches || searchTerm === '') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Show/hide clear button
-            searchClear.style.display = searchTerm ? 'block' : 'none';
-        }
-
-        searchInput.addEventListener('input', performSearch);
-        
-        searchClear.addEventListener('click', () => {
-            searchInput.value = '';
-            performSearch();
-            searchInput.focus();
-        });
-
-        // Initialize the map with error handling
-        function initializeMap() {
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', function() {
             try {
-                const mapElement = document.getElementById('business-map');
-                if (!mapElement) {
-                    console.warn('Map element not found');
-                    return;
-                }
-                
-                if (typeof L === 'undefined') {
-                    console.warn('Leaflet library not loaded');
-                    mapElement.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Map temporarily unavailable. Please try refreshing the page.</p>';
-                    return;
-                }
-                
+                // Initialize map centered on Sixmilebridge
                 const map = L.map('business-map').setView([52.7447, -8.7717], 15);
-
-                // Add OpenStreetMap tiles with error handling
-                const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                
+                // Add tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors',
-                    maxZoom: 19,
-                    errorTileUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0iI2Y4ZjlmYSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1hcCB0aWxlIHVuYXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg=='
+                    maxZoom: 19
+                }).addTo(map);
+                
+                // Business locations with coordinates
+                const businesses = [
+                    {
+                        name: "Cozy Cottage Cafe",
+                        type: "Cafe",
+                        coords: [52.74197873108395, -8.773190775257588],
+                        address: "Main Street, Sixmilebridge",
+                        phone: "061 369666"
+                    },
+                    {
+                        name: "KV Hair By Hazel",
+                        type: "Men's Barber & Ladies Hairdresser",
+                        coords: [52.74209449506144, -8.772884249269271],
+                        address: "Unit 3, Main Street",
+                        phone: "083 390 7621"
+                    },
+                    {
+                        name: "Morey Digital",
+                        type: "Web Design & Digital Growth",
+                        coords: [52.742165486202175, -8.77254027479462],
+                        address: "Ballysheen, Sixmilebridge",
+                        phone: "087 399 9296"
+                    },
+                    {
+                        name: "Bark'n'Board",
+                        type: "Dog Boarding Service",
+                        coords: [52.727436487114666, -8.781307460451785],
+                        address: "Hill House, Sixmilebridge",
+                        phone: "087 371 0949"
+                    }
+                ];
+                
+                // Add markers for each business
+                businesses.forEach(business => {
+                    try {
+                        const marker = L.marker(business.coords);
+                        
+                        const popupContent = `
+                            <div class="map-popup">
+                                <h3>${business.name}</h3>
+                                <p class="business-type">${business.type}</p>
+                                <p><strong>Address:</strong> ${business.address}</p>
+                                <p><strong>Phone:</strong> ${business.phone}</p>
+                            </div>
+                        `;
+                        
+                        marker.bindPopup(popupContent);
+                        marker.addTo(map);
+                    } catch (error) {
+                        console.warn('Error adding marker for business:', business.name, error);
+                    }
                 });
                 
-                tileLayer.on('tileerror', function(e) {
-                    console.warn('Map tile failed to load:', e);
-                });
-                
-                tileLayer.addTo(map);
-                return map;
             } catch (error) {
                 console.error('Map initialization error:', error);
                 const mapElement = document.getElementById('business-map');
                 if (mapElement) {
                     mapElement.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Map temporarily unavailable. Please try refreshing the page.</p>';
                 }
-                return null;
             }
-        }
-        
-        const map = initializeMap();
-
-        // Business locations with approximate coordinates around Sixmilebridge
-        const businesses = [
-            {
-                name: "Cozy Cottage Cafe",
-                type: "Cafe",
-                coords: [52.74197873108395, -8.773190775257588],
-                address: "Main street, Sixmilebridge",
-                phone: "061 369666"
-            },
-            {
-                name: "KV Hair By Hazel",
-                type: "Men's Barber & Ladies Hairdresser",
-                coords: [52.74209449506144, -8.772884249269271],
-                address: "Unit 3, Main Street",
-                phone: "0833907621"
-            },
-            {
-                name: "Morey Digital",
-                type: "Web Design & Digital Growth",
-                coords: [52.742165486202175, -8.77254027479462],
-                address: "Ballysheen, Sixmilebridge",
-                phone: "087 399 9296"
-            },
-            {
-                name: "Bark'n'Board",
-                type: "Dog Boarding Service",
-                coords: [52.727436487114666, -8.781307460451785],
-                address: "Hill House, Sixmilebridge",
-                phone: "087 371 0949"
-            }
-        ];
-
-        // Add markers for each business with error handling
-        if (map && Array.isArray(businesses)) {
-            businesses.forEach(business => {
-                try {
-                    if (!business.coords || !Array.isArray(business.coords) || business.coords.length !== 2) {
-                        console.warn('Invalid coordinates for business:', business.name);
-                        return;
-                    }
-                    
-                    const marker = L.marker(business.coords);
-                    
-                    const popupContent = `
-                        <div class="map-popup">
-                            <h3>${business.name || 'Business Name'}</h3>
-                            <p class="business-type">${business.type || 'Business Type'}</p>
-                            <p><strong>Address:</strong> ${business.address || 'Address not available'}</p>
-                            <p><strong>Phone:</strong> ${business.phone || 'Phone not available'}</p>
-                        </div>
-                    `;
-                    
-                    marker.bindPopup(popupContent);
-                    marker.addTo(map);
-                } catch (error) {
-                    console.warn('Error adding marker for business:', business.name, error);
-                }
-            });
-        } else {
-            console.warn('Map or businesses data not available');
-        }
-        
-        // Graceful degradation for older browsers
-        if (!Array.prototype.forEach) {
-            Array.prototype.forEach = function(callback, thisArg) {
-                for (var i = 0; i < this.length; i++) {
-                    callback.call(thisArg, this[i], i, this);
-                }
-            };
-        }
-        
-        if (!String.prototype.includes) {
-            String.prototype.includes = function(search, start) {
-                if (typeof start !== 'number') {
-                    start = 0;
-                }
-                return this.substr(start).indexOf(search) !== -1;
-            };
-        }
-        
-        // Input validation for search
-        if (searchInput) {
-            searchInput.addEventListener('keydown', function(e) {
-                // Allow: backspace, delete, tab, escape, enter
-                if ([8, 9, 27, 13, 46].indexOf(e.keyCode) !== -1 ||
-                    // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
-                    (e.keyCode === 65 && e.ctrlKey === true) ||
-                    (e.keyCode === 67 && e.ctrlKey === true) ||
-                    (e.keyCode === 86 && e.ctrlKey === true) ||
-                    (e.keyCode === 88 && e.ctrlKey === true)) {
-                    return;
-                }
-                // Ensure that it is a number/letter and stop the keypress
-                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 65 || e.keyCode > 90) && (e.keyCode < 97 || e.keyCode > 122) && e.keyCode !== 32) {
-                    // Allow special characters commonly used in business names
-                    var allowedChars = [189, 109, 190, 110, 222, 192, 219, 221]; // -, ., ', `, [, ]
-                    if (allowedChars.indexOf(e.keyCode) === -1) {
-                        e.preventDefault();
-                    }
-                }
-            });
-        }
+        });
     </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>

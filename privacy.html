@@ -62,12 +62,12 @@
         <h3>2. Use of your Personal Information</h3>
         <p>The Town Team collects and uses your personal information to operate The Town Team Web site and deliver the services you have requested. The Town Team also uses your personally identifiable information to inform you of other products or services available from The Town Team through its main website or affiliate websites. The Town Team may also contact you via surveys to conduct research about your opinion of the sector, current services or of potential new services that may be offered.</p>
         <p>The Town Team does not sell, rent or lease its customer lists to third parties. The Town Team may, from time to time, contact you on behalf of external business partners about a particular offering that may be of interest to you. In those cases, your unique personally identifiable information (e-mail, name, address, telephone number) is not transferred to the third party. In addition, The Town Team may share data with trusted partners to help us perform statistical analysis, send you email or postal mail, provide customer support, or arrange for deliveries. All such third parties are prohibited from using your personal information except in their provision of these services to The Town Team, and they are required to maintain the confidentiality of your information.</p>
-        <p>The Town Team keeps track of the Web sites and pages our customers visit within our website in order to determine what services are most frequently used. These results are used to deliver customized content and promotion within The Town Team to customers whose behaviour indicates that they are interested in a particular subject area.</p>
+        <p>The Town Team keeps track of the Web sites and pages our customers visit within our website in order to determine what services are most frequently used. These results are used to deliver customised content and promotion within The Town Team to customers whose behaviour indicates that they are interested in a particular subject area.</p>
         <p>The Town Team Web sites will disclose your personal information, without notice, only if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the edicts of the law or comply with legal process served on The Town Team or the site; (b) protect and defend the rights or property of The Town Team; and, (c) act under exigent circumstances to protect the personal safety of users of The Town Team, or the public.</p>
 
         <h3>3. Use of Cookies</h3>
-        <p>The Town Team Web site uses "cookies" to help you personalize your online experience. A cookie is a text file that is placed on your hard disk by a Web page server. Cookies cannot be used to run programs or deliver viruses to your computer. Cookies are uniquely assigned to you, and can only be read by a web server in the domain that issued the cookie to you.</p>
-        <p>One of the primary purposes of cookies is to provide a convenience feature to save you time. The purpose of a cookie is to tell the Web server that you have returned to a specific page. For example, if you personalize The Town Team pages, or register with The Town Team site or services, a cookie helps The Town Team to recall your specific information on subsequent visits. This simplifies the process of recording your personal information, such as billing addresses, shipping addresses, and so on. When you return to the same The Town Team Web site, the information you previously provided can be retrieved, so you can easily use the features that you customized.</p>
+        <p>The Town Team Web site uses "cookies" to help you personalise your online experience. A cookie is a text file that is placed on your hard disk by a Web page server. Cookies cannot be used to run programs or deliver viruses to your computer. Cookies are uniquely assigned to you, and can only be read by a web server in the domain that issued the cookie to you.</p>
+        <p>One of the primary purposes of cookies is to provide a convenience feature to save you time. The purpose of a cookie is to tell the Web server that you have returned to a specific page. For example, if you personalise The Town Team pages, or register with The Town Team site or services, a cookie helps The Town Team to recall your specific information on subsequent visits. This simplifies the process of recording your personal information, such as billing addresses, shipping addresses, and so on. When you return to the same The Town Team Web site, the information you previously provided can be retrieved, so you can easily use the features that you customised.</p>
         <p>You have the ability to accept or decline cookies. Most Web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. If you choose to decline cookies, you may not be able to fully experience the interactive features of The Town Team services or Web sites you visit.</p>
 
         <h3>4. Security of your Personal Information</h3>
@@ -153,7 +153,7 @@
                     <div class="partners-grid">
                         <a href="https://towncentrefirst.ie/" target="_blank" rel="noopener"><img src="Town Centre First Logo.jpg" alt="Town Centre First Logo"></a>
                         <a href="https://clarecoco.ie/" target="_blank" rel="noopener"><img src="Clare County Council Logo.jpg" alt="Clare County Council Logo"></a>
-                        <a href="https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/policy-information/project-ireland-2040/" target="_blank" rel="noopener"><img src="Project Ireland 2040 Logo.jpg" alt="Project Ireland 2040 Logo"></a>
+                        <a href="https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/publications/national-development-plan-review-2025/" target="_blank" rel="noopener"><img src="Project Ireland 2040 Logo.jpg" alt="Project Ireland 2040 Logo"></a>
                         <a href="https://www.gov.ie/en/department-of-rural-and-community-development-and-the-gaeltacht/campaigns/our-rural-future/" target="_blank" rel="noopener"><img src="Our Rural Future Logo.jpg" alt="Our Rural Future Logo"></a>
                     </div>
                 </div>
@@ -163,5 +163,33 @@
         </div>
         </div>
     </footer>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        function toggleNavigation() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('active');
+        }
+
+        navToggle.addEventListener('click', toggleNavigation);
+        
+        // Handle keyboard navigation
+        navToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleNavigation();
+            }
+        });
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleNavigation();
+                navToggle.focus();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -37,6 +37,7 @@ body {
     line-height: 1.6;
     color: #444;
     background-color: #fdfdfd;
+    padding-top: 120px; /* Account for fixed navbar height */
 }
 
 .container {
@@ -93,8 +94,11 @@ a:hover {
 .navbar {
     background-color: #1a472a;
     padding: 1.5rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -262,6 +266,273 @@ a:hover {
 .about-content .highlight-image img {
     margin-left: 0 !important;
     margin-right: auto !important;
+}
+
+/* Business Overview Top Section */
+.business-overview-top {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+}
+
+.business-map-section {
+    padding: 3rem 0;
+    background-color: #ffffff;
+}
+
+.map-section-full {
+    text-align: center;
+}
+
+.map-section-full h2 {
+    margin-bottom: 2rem;
+    color: #1a472a;
+}
+
+.top-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.add-business-section-top {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.add-business-section-top h2 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+.add-business-section-top p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.map-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.map-section h2 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+#business-map {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Map popup styles */
+.map-popup h3 {
+    color: #1a472a;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.map-popup .business-type {
+    color: #666;
+    font-style: italic;
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+.map-popup p {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.map-popup strong {
+    color: #333;
+}
+
+/* Business Categories Overview Styles */
+.business-categories-overview {
+    padding: 5rem 0;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.intro-section h2 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.category-tile {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.category-tile:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    border-color: #1a472a;
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.category-tile h3 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.category-tile p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.category-cta {
+    display: inline-block;
+    background-color: #1a472a;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.category-tile:hover .category-cta {
+    background-color: #2d5a3d;
+}
+
+.add-business-section {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.add-business-section h3 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+.add-business-btn {
+    display: inline-block;
+    background-color: #ff6b35;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.add-business-btn:hover {
+    background-color: #e55a2b;
+    transform: translateY(-2px);
+}
+
+/* Business Category Pages Styles */
+.directory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.breadcrumb a {
+    color: #1a472a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.category-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.category-intro h2 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+.empty-category {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    border: 2px dashed #ddd;
+}
+
+.empty-category h3 {
+    color: #1a472a;
+    margin-bottom: 1rem;
+}
+
+.empty-category p {
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile responsiveness for business directory */
+@media (max-width: 768px) {
+    .top-section-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .add-business-section-top,
+    .map-section {
+        padding: 1.5rem;
+    }
+    
+    .directory-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .category-tile {
+        padding: 1.5rem;
+    }
+    
+    .add-business-section {
+        padding: 2rem 1rem;
+    }
 }
 
 .about-content p:first-of-type {
@@ -559,6 +830,16 @@ img {
     height: auto;
 }
 
+/* Hover effect for linked images */
+a img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a:hover img {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero-content {
@@ -572,10 +853,14 @@ img {
         flex-direction: column-reverse;
     }
 
+    body {
+        padding-top: 100px; /* Smaller padding for mobile */
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 100px;
         flex-direction: column;
         background-color: #1a472a;
         width: 100%;
