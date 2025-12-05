@@ -843,6 +843,60 @@ footer {
     max-width: 350px;
 }
 
+/* Credit Union Sponsor Section */
+.credit-union-sponsor {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.sponsor-content {
+    text-align: center;
+}
+
+.sponsor-content h2 {
+    color: #1a472a;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.sponsor-logo-container {
+    margin: 2rem 0;
+}
+
+.sponsor-main-logo {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-main-logo:hover {
+    transform: scale(1.05);
+}
+
+.sponsor-text {
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.sponsor-text p {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.sponsor-text ul {
+    margin: 1rem 0 2rem 2rem;
+    list-style-type: disc;
+}
+
+.sponsor-text ul li {
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
 .footer-logos h3 {
     color: #fff;
     border-bottom: none;
@@ -871,8 +925,25 @@ a:hover img {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+    .hero {
+        padding: 2rem 0;
+        margin-top: 150px;
+    }
+    
     .hero-content {
         padding: 0 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
     }
     .highlight-content {
         flex-direction: column;
@@ -881,9 +952,26 @@ a:hover img {
     .highlights:nth-of-type(even) .highlight-content {
         flex-direction: column-reverse;
     }
+    
+    .credit-union-sponsor {
+        padding: 3rem 1rem;
+        margin: 2rem 0;
+    }
+    
+    .sponsor-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .sponsor-main-logo {
+        max-width: 280px;
+    }
+    
+    .sponsor-text {
+        padding: 0 1rem;
+    }
 
     body {
-        padding-top: 100px; /* Adjusted padding for mobile */
+        padding-top: 0px; /* Removed body padding, using hero margin instead */
     }
     
     .nav-menu {
@@ -933,6 +1021,22 @@ a:hover img {
 }
 
 @media screen and (max-width: 480px) {
+    .hero {
+        padding: 1.5rem 0;
+        margin-top: 130px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    
     h1 {
         font-size: 2.2rem;
     }
