@@ -570,6 +570,30 @@ a:hover {
     color: #333;
 }
 
+.be-included p {
+    font-weight: normal;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    margin-bottom: 0.75rem;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #61b8c8;
+}
+
 .about-content .education-section p:first-of-type,
 .about-content .churches-section p:first-of-type,
 .about-content .events-section p:first-of-type,
@@ -855,7 +879,7 @@ footer {
 }
 
 .sponsor-content h2 {
-    color: #1a472a;
+    color: #004aad;
     font-size: 2.2rem;
     margin-bottom: 2rem;
 }
@@ -888,13 +912,24 @@ footer {
 }
 
 .sponsor-text ul {
-    margin: 1rem 0 2rem 2rem;
-    list-style-type: disc;
+    margin: 1rem 0 2rem 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .sponsor-text ul li {
+    position: relative;
+    padding-left: 1.5rem;
     margin-bottom: 0.8rem;
     color: #333;
+}
+
+.sponsor-text ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #004aad;
+    font-weight: bold;
 }
 
 .footer-logos h3 {
