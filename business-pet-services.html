@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <!-- Favicon and Web App Manifest -->
-    <link rel="icon" type="image/png" href="Logo Modified.jpg">
+    <link rel="icon" type="image/jpeg" href="Logo Modified.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="Logo Modified.jpg">
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -125,7 +125,7 @@
 
                 <div class="business-grid">
                     <div class="business-card" itemscope itemtype="https://schema.org/PetStore">
-                        <img src="barknboard_logo.png" alt="Bark'n'Board Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;">
+                        <img src="barknboard_logo.png" alt="Bark'n'Board Logo" itemprop="logo" style="max-width: 150px; border-radius: 8px; margin-bottom: 1rem;" loading="lazy">
                         <h3 itemprop="name">Bark'n'Board</h3>
                         <p class="business-type">Dog Boarding Service</p>
                         <p itemprop="description">Professional dog boarding and pet care services in a safe, loving environment. Your furry family members receive excellent care while you're away.</p>

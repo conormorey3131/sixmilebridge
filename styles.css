@@ -225,7 +225,7 @@ a:hover {
 
 /* Page Hero */
 .page-hero {
-    background: linear-gradient(rgba(0, 74, 173, 0.8), rgba(97, 184, 200, 0.8)), url('https://via.placeholder.com/1200x400.png?text=Community+Banner') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(97, 184, 200, 0.85)), url('townCentre.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 5rem 0;
     text-align: center;
