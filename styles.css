@@ -342,6 +342,21 @@ a:hover {
     line-height: 1.6;
 }
 
+/* Shared content column for form call-to-action blocks.
+   ".container p" caps paragraphs at 800px and centres them, so the
+   paragraph and its button must share one column to line up. */
+.submit-cta {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit-cta p {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .map-section {
     background: #fff;
     border-radius: 15px;
