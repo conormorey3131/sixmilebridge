@@ -1,10 +1,10 @@
-const CACHE_NAME = 'sixmilebridge-v1';
+const CACHE_NAME = 'sixmilebridge-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/community.html',
   '/business.html',
-  '/events.html',
+  '/news.html',
   '/styles.css',
   '/favicon-16x16.png',
   '/favicon-32x32.png',

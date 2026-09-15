@@ -86,7 +86,7 @@
     <!-- Resource hints for better performance -->
     <link rel="prefetch" href="community.html">
     <link rel="prefetch" href="business.html">
-    <link rel="prefetch" href="events.html">
+    <link rel="prefetch" href="news.html">
     
     <!-- Non-critical CSS loaded asynchronously -->
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -174,7 +174,7 @@
             let startY = 0;
             let isNavigating = false;
             
-            const pages = ['index.html', 'community.html', 'business.html', 'events.html'];
+            const pages = ['index.html', 'community.html', 'business.html', 'news.html'];
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             const currentIndex = pages.indexOf(currentPage);
             
@@ -264,7 +264,7 @@
                         <a href="business.html" class="nav-link">Business Directory</a>
                     </li>
                     <li class="nav-item">
-                        <a href="events.html" class="nav-link">Events</a>
+                        <a href="news.html" class="nav-link">News</a>
                     </li>
                 </ul>
                 <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -386,7 +386,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="community.html">Community</a></li>
                     <li><a href="business.html">Business Directory</a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href="news.html">News</a></li>
                 </ul>
             </div>
             <div class="footer-section">
