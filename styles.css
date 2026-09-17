@@ -1414,3 +1414,16 @@ button:focus,
     font-weight: 700;
     color: #004aad;
 }
+
+/* Keep the clinic poster readable and uncropped at every screen size. */
+.event-card.clinic-event {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.clinic-event .event-image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
