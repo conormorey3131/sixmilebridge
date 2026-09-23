@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sixmilebridge-v4';
+const CACHE_NAME = 'sixmilebridge-v5';
 const urlsToCache = [
   '/',
   '/index.html',
